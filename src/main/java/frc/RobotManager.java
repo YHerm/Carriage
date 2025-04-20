@@ -51,6 +51,11 @@ public class RobotManager extends LoggedRobot {
 	}
 
 	@Override
+	public void teleopPeriodic() {
+		JoysticksBindings.setDriversInputsToChassis(robot.getMecanum());
+	}
+
+	@Override
 	public void autonomousInit() {
 		this.autonomousCommand = robot.getAutonomousCommand();
 

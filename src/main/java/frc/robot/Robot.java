@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.RobotManager;
 import frc.robot.hardware.phoenix6.BusChain;
+import frc.robot.subsystems.mecanum.Mecanum;
 import frc.utils.battery.BatteryUtil;
 
 /**
@@ -20,20 +21,22 @@ public class Robot {
 
 	public static final RobotType ROBOT_TYPE = RobotType.determineRobotType();
 
+	private final Mecanum mecanum;
+
 	public Robot() {
-		BatteryUtil.scheduleLimiter();
+		this.mecanum = new Mecanum();
 	}
 
 	public void periodic() {
-		BusChain.refreshAll();
-
-		BatteryUtil.logStatus();
-		BusChain.logChainsStatuses();
 		CommandScheduler.getInstance().run(); // Should be last
 	}
 
 	public Command getAutonomousCommand() {
 		return new InstantCommand();
+	}
+
+	public Mecanum getMecanum() {
+		return mecanum;
 	}
 
 }
