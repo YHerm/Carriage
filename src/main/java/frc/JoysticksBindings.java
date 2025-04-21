@@ -1,8 +1,10 @@
 package frc;
 
+import frc.joysticks.Axis;
 import frc.joysticks.JoystickPorts;
 import frc.joysticks.SmartJoystick;
 import frc.robot.Robot;
+import frc.robot.subsystems.mecanum.Mecanum;
 
 public class JoysticksBindings {
 
@@ -21,6 +23,19 @@ public class JoysticksBindings {
 		fifthJoystickButtons(robot);
 		sixthJoystickButtons(robot);
 	}
+
+	public static void setDriversInputsToChassis(Mecanum mecanum) {
+		if (MAIN_JOYSTICK.isConnected()) {
+			mecanum.drive(
+				MAIN_JOYSTICK.getAxisValue(Axis.LEFT_X),
+				MAIN_JOYSTICK.getAxisValue(Axis.LEFT_Y),
+				MAIN_JOYSTICK.getAxisValue(Axis.RIGHT_X)
+			);
+		} else {
+			mecanum.stop();
+		}
+	}
+
 
 	private static void mainJoystickButtons(Robot robot) {
 		SmartJoystick usedJoystick = MAIN_JOYSTICK;
