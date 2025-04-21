@@ -8,9 +8,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.RobotManager;
-import frc.robot.hardware.phoenix6.BusChain;
 import frc.robot.subsystems.mecanum.Mecanum;
-import frc.utils.battery.BatteryUtil;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a "declarative" paradigm, very little robot logic should

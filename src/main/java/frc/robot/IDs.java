@@ -9,10 +9,12 @@ public class IDs {
 	public static final PowerDistributionDeviceID POWER_DISTRIBUTION = new PowerDistributionDeviceID(1, PowerDistribution.ModuleType.kCTRE);
 
 	public static class VictorSPXIDs {
+
 		public static final MotorID FRONT_LEFT = new MotorID(0, false);
 		public static final MotorID BACK_LEFT = new MotorID(1, false);
 		public static final MotorID FRONT_RIGHT = new MotorID(2, false);
 		public static final MotorID BACK_RIGHT = new MotorID(3, false);
+
 	}
 
 	public static class TalonFXIDs {
